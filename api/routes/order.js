@@ -2,38 +2,28 @@ const express = require('express');
 
 const router = express.Router();
 
-const oderModel = require("../models/order");
-const productModel = require("../models/product");
+const checkAuth = require('../middleware/check-auth');
+const orderController = require('../controllers/order');
 
 
 
 
 
+//order get 
+router.get('/', checkAuth, orderController.order_get_all);
 
-router.get('/', (req,res) => {
-
-});
-
-
-router.get('/', (req,res) => {
-
-});
+//order detail get 
+router.get('/:order_id', checkAuth, orderController.order_get_detail);
 
 
-router.post('/', (req,res) => {
+//order posting
+router.post('/', checkAuth, orderController.order_post);
 
-});
+//order update
+router.patch('/:order_id', checkAuth, orderController.order_update);
 
-router.patch('/', (req,res) =>{
-
-});
-
-router.delete('/', (req,res) => {
-
-});
-
-
-
+//order delete
+router.delete('/:order_id', checkAuth, orderController.order_delete);
 
 
 
