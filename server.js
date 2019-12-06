@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const morgan = require('morgan');
-
+const bodyParser = require('body-parser');
 
 
 
@@ -29,7 +29,8 @@ mongoose.connect(mongoDBurl,
 
 
 app.use(morgan('dev'));
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended:true}));
 
 
 app.use('/product', productRoute);
