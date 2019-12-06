@@ -1,13 +1,13 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-
+const morgan = require('morgan');
 
 
 
 
 const productRoute = require('./api/routes/product');
-const orderRoute = require('./api/routes/order/');
+const orderRoute = require('./api/routes/order');
 const userRoute = require('./api/routes/user');
 
 
@@ -28,7 +28,7 @@ mongoose.connect(mongoDBurl,
 
 
 
-
+app.use(morgan('dev'));
 
 
 
